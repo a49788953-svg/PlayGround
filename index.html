@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#10131e">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23171926'/%3E%3Ctext x='50%25' y='52%25' dominant-baseline='middle' text-anchor='middle' font-size='42' fill='%23e5ba72'%3E%E2%99%9C%3C/text%3E%3C/svg%3E">
+  <title>Roar of the Rook — Dark World Defense</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="game-shell">
+    <header class="topbar">
+      <div class="brand"><div class="brand-mark">♜</div><div><span class="eyebrow">A DARK WORLD DEFENSE</span><h1>ROAR OF THE ROOK</h1></div></div>
+      <div class="top-actions"><div class="level-chip"><span class="live-dot"></span><span id="levelName">THE HUSHING MEADOW</span></div><button id="pauseBtn" class="icon-btn" aria-label="Pause game">Ⅱ</button></div>
+    </header>
+    <section class="game-frame" aria-label="Game board">
+      <canvas id="game" width="960" height="540" aria-label="Five-lane dark world defense game"></canvas>
+      <div class="start-screen" id="startScreen">
+        <div class="start-card">
+          <div class="crest">♜</div><p class="eyebrow">THE DARK WORLD IS CALLING</p>
+          <h2>Stand your ground.<br><em>Let the roar answer.</em></h2>
+          <p class="intro">Take command of the Roaring Knight. Hold five lanes against the advancing shadows, raise Rook wards, and unleash a roar when the horde closes in.</p>
+          <div class="howto"><span><b>01</b> Tap a lane to move & strike</span><span><b>02</b> Gather shards, place wards</span><span><b>03</b> Roar to scatter the horde</span></div>
+          <button id="startBtn" class="primary-btn">ENTER THE MEADOW <span>→</span></button>
+          <small>5 chapters · Touch friendly · Sound optional</small>
+        </div>
+      </div>
+      <div class="message-screen hidden" id="messageScreen"><div class="message-card"><div id="messageIcon" class="message-icon">✦</div><p class="eyebrow" id="messageEyebrow">CHAPTER COMPLETE</p><h2 id="messageTitle">The meadow is safe.</h2><p id="messageText">Your roar echoes across the Dark World.</p><button id="messageBtn" class="primary-btn">CONTINUE <span>→</span></button></div></div>
+      <div class="pause-screen hidden" id="pauseScreen"><div class="pause-card"><p class="eyebrow">TAKE A BREATH</p><h2>Paused</h2><button id="resumeBtn" class="primary-btn">BACK TO THE FIGHT <span>→</span></button></div></div>
+    </section>
+    <section class="control-deck">
+      <div class="status-panel">
+        <div class="stat"><div class="stat-icon shard-icon">✦</div><div><span class="stat-label">DARK SHARDS</span><strong id="shardCount">100</strong></div></div>
+        <div class="stat wave-stat"><div class="stat-icon wave-icon">☠</div><div><span class="stat-label">WAVE</span><strong><span id="waveCount">1</span><small> / 3</small></strong></div></div>
+        <div class="progress-wrap"><div class="progress-copy"><span>CHAPTER PROGRESS</span><span id="progressText">0%</span></div><div class="progress-track"><i id="progressBar"></i></div></div>
+      </div>
+      <div class="action-panel">
+        <button id="wardBtn" class="action-btn ward-btn"><span class="action-art ward-art">♜</span><span class="action-copy"><b>ROOK WARD</b><small>50 shards · set on lane</small></span><kbd>1</kbd></button>
+        <button id="roarBtn" class="action-btn roar-btn"><span class="action-art roar-art">〰</span><span class="action-copy"><b>THE ROAR</b><small id="roarHint">Ready · clear the lanes</small></span><div class="cooldown" id="roarCooldown"></div><kbd>SPACE</kbd></button>
+      </div>
+    </section>
+    <footer><span><i class="footer-dot"></i> DEFEND THE FOUNTAIN</span><span>Tap a lane to command the Knight <b>·</b> Hold fast, little shadow</span></footer>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
